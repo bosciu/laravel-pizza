@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index() 
     {
-        $pizza = Pizza::all();
+        $pizza = Pizza::where('veg',false)->get();
         return view('home', compact('pizza'));
     }
 }
