@@ -36,7 +36,19 @@ class PizzaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $pizza = new Pizza();
+        if(!array_key_exists('veg', $data)) {
+            $data['veg'] = 0;
+        } else {
+            $data['veg'] = 1;
+        }
+        // $pizza->name = $data['name'];
+        $pizza->fill($data);
+        $pizza->save();
+        return redirect()
+            ->route('pizzas.index')
+            ->with('message', 'La creazione è avvenuta con successo!');
     }
 
     /**

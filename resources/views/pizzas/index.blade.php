@@ -3,6 +3,10 @@
 @section('content')
     <h1>Elenco pizze</h1>
     
+    @if (session('message'))
+    <div class="alert alert-success">{{ session('message') }}</div>
+    @endif
+    
     <table class="table table-striped">
         <tr>
             <th>ID</th>
