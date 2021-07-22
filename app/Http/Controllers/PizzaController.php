@@ -80,9 +80,30 @@ class PizzaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Pizza $pizza)
     {
-        //
+        $data = $request->all();
+
+        if(!array_key_exists('veg', $data)) {
+            $data['veg'] = 0;
+        } else {
+            $data['veg'] = 1;
+        }
+
+        $request->validate(
+            [
+                'name'=>'required|max:30',
+                'ingredients'=>'required',
+                'price'=>'required|numeric|min:0.50|max:99.99',
+                'veg'=>'required'
+            ]
+        );
+
+        $pizza->update($data);
+
+        return redirect()
+            ->route('pizzas.index')
+            ->with('message', 'La modifica è avvenuta con successo!'); 
     }
 
     /**
