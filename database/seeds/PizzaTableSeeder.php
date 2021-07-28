@@ -17,7 +17,8 @@ class PizzaTableSeeder extends Seeder
         foreach ($arrayPizza as $item ) {
 
             $pizza = new Pizza(); 
-
+            
+            $pizza->category_id = $item['category_id'];
             $pizza->name = $item['name']; 
             $pizza->ingredients = $item['ingredients'];
             $pizza->price = $item['price'];
