@@ -10,6 +10,11 @@ class Pizza extends Model
         "name",
         "ingredients",
         "price",
-        "veg"
+        "veg",
+        "category_id"
     ];
+
+    public function category(){
+        return $this->belongsTo('App\Category');
+    }
 }

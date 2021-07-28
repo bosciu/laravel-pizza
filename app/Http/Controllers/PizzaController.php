@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pizza;
+use App\Category;
 
 class PizzaController extends Controller
 {
@@ -25,7 +26,8 @@ class PizzaController extends Controller
      */
     public function create()
     {
-        return view('pizzas.create');
+        $categories = Category::all();
+        return view('pizzas.create', compact('categories'));
     }
 
     /**

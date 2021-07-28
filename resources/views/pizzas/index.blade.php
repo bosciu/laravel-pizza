@@ -11,7 +11,7 @@
         <tr>
             <th>ID</th>
             <th>Nome</th>
-            <th>Vegetariano</th>
+            <th>Categoria</th>
             <th colspan="3">Azioni</th>
         </tr>
         
@@ -19,7 +19,7 @@
             <tr>
                 <td>{{ $item->id }}</td>
                 <td>{{ $item->name }}</td>
-                <td>{{ $item->veg ? 'Si' : 'No' }}</td>
+                <td>{{ $item->category->name }}</td>
                 <td>show</td>
                 <td>edit</td>
                 <td>delete</td>
