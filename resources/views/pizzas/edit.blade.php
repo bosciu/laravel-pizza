@@ -1,7 +1,7 @@
 @extends('layout.main')
 
 @section('content')
-<h1>Stai modificando la pizza: {{ $pizza->name }}</h1>
+<h1>Stai modificando : {{ $pizza->name }}</h1>
 <form action='{{ route('pizzas.update', $pizza->id) }}' method='POST'>
     @csrf
     @method('PATCH')
