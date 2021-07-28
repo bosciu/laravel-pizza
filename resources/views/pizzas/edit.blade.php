@@ -1,7 +1,11 @@
 @extends('layout.main')
 
 @section('content')
+<<<<<<< HEAD
 <h1>{{ $pizza->name }}</h1>
+=======
+<h1>Stai modificando : {{ $pizza->name }}</h1>
+>>>>>>> be926ff7cb134b39df528bda4cb907106fc54cd7
 <form action='{{ route('pizzas.update', $pizza->id) }}' method='POST'>
     @csrf
     @method('PATCH')
