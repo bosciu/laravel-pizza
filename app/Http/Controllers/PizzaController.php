@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Pizza;
 use App\Category;
+use App\Ingredient;
 
 class PizzaController extends Controller
 {
@@ -26,8 +27,11 @@ class PizzaController extends Controller
      */
     public function create()
     {
+        $ingredients = Ingredient::all();
         $categories = Category::all();
-        return view('pizzas.create', compact('categories'));
+        return view('pizzas.create', compact('categories', 'ingredients'));
+
+
     }
 
     /**
@@ -48,6 +52,11 @@ class PizzaController extends Controller
         // $pizza->name = $data['name'];
         $pizza->fill($data);
         $pizza->save();
+
+        if(array_key_exists('ingredients', $data)) {
+            $pizza->ingredients()->attach($data['ingredients']);
+        }
+
         return redirect()
             ->route('pizzas.index')
             ->with('message', 'La creazione è avvenuta con successo!');

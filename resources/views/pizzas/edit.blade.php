@@ -1,11 +1,9 @@
 @extends('layout.main')
 
 @section('content')
-<<<<<<< HEAD
-<h1>{{ $pizza->name }}</h1>
-=======
+{{-- <h1>{{ $pizza->name }}</h1> --}}
+
 <h1>Stai modificando : {{ $pizza->name }}</h1>
->>>>>>> be926ff7cb134b39df528bda4cb907106fc54cd7
 <form action='{{ route('pizzas.update', $pizza->id) }}' method='POST'>
     @csrf
     @method('PATCH')
@@ -14,8 +12,8 @@
         <input type="text" class="form-control" id="name" placeholder="Scrivi il nome della pizza" name="name" value="{{ old('name', $pizza->name) }}">
     </div>
     <div class="form-group">
-        <label for="ingredients">Ingredienti</label>
-        <input type="text" class="form-control" id="ingredients" placeholder="Inserisci gli igredienti" name="ingredients" value="{{ old('ingredients', $pizza->ingredients) }}">
+        <label for="description">Ingredienti</label>
+        <input type="text" class="form-control" id="description" placeholder="Inserisci gli igredienti" name="description" value="{{ old('description', $pizza->description) }}">
     </div>
     <div class="form-group">
         <label class="form-check-label" for="price">Prezzo</label>
